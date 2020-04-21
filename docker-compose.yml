@@ -3,7 +3,7 @@ version: '3.7'
 services:
   web:
     container_name: vuln-nginx
-    image: zebboudj/laravel-ctf
+    image: nginx:1.10
     ports:
       - 1234:80
     volumes:
@@ -20,7 +20,7 @@ services:
       - ./docker/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
 
   database:
-    image: zebboudj/laravel-ctf
+    image: mysql:5.7
     ports:
       - 33061:3306
     container_name: vuln-database
