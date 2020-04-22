@@ -2,8 +2,8 @@ version: '3.7'
 
 services:
   web:
-    container_name: zebboudj/laravel-ctf-nginx:latest
-    # container_name: vuln-nginx
+    # container_name: zebboudj/laravel-ctf-nginx:latest
+    container_name: vuln-nginx
     image: zebboudj/laravel-ctf-nginx:latest
     # image: nginx:1.10
     ports:
@@ -13,8 +13,8 @@ services:
       - .:/var/www/html:cached
 
   app:
-    container_name: zebboudj/laravel-ctf:latest
-    # container_name: vuln-app
+    # container_name: zebboudj/laravel-ctf:latest
+    container_name: vuln-app
     build:
       context: .
     volumes:
