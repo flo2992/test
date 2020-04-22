@@ -7,7 +7,7 @@ services:
     image: zebboudj/laravel-ctf-nginx:latest
     # image: nginx:1.10
     ports:
-      - 80:80
+      - 1234:80
     volumes:
       - ./docker/nginx/:/etc/nginx/conf.d:cached
       - .:/var/www/html:cached
