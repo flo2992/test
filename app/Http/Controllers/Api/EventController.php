@@ -32,4 +32,10 @@ class EventController extends Controller
 
         return response()->json($events);
     }
+
+    // public function imgupload(){
+
+    // }
+
+    
 }

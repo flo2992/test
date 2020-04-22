@@ -2,8 +2,10 @@ version: '3.7'
 
 services:
   web:
-    container_name: vuln-nginx
-    image: nginx:1.10
+    container_name: zebboudj/laravel-ctf-nginx:latest
+    # container_name: vuln-nginx
+    image: zebboudj/laravel-ctf-nginx:latest
+    # image: nginx:1.10
     ports:
       - 1234:80
     volumes:
@@ -11,7 +13,8 @@ services:
       - .:/var/www/html:cached
 
   app:
-    container_name: vuln-app
+    container_name: zebboudj/laravel-ctf:latest
+    # container_name: vuln-app
     build:
       context: .
     volumes:
@@ -20,12 +23,17 @@ services:
       - ./docker/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
 
   database:
-    image: mysql:5.7
+    container_name: vuln-database
+    image: zebboudj/laravel-ctf-bdd:latest
+    # image: mysql:5.7
     ports:
       - 33061:3306
-    container_name: vuln-database
     environment:
       - "MYSQL_USER=almostroot"
       - "MYSQL_PASSWORD=password123"
       - "MYSQL_DATABASE=vulnerable_app"
       - "MYSQL_ROOT_PASSWORD=password123"
+    volumes:
+      - my-datavolume:/var/lib/mysql
+volumes: 
+  my-datavolume:

@@ -7,3 +7,5 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/my-profile', 'ProfileController@showProfilePage')->name('my-profile');
+
+Route::get('/img', 'EventController@imgupload');
