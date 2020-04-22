@@ -14,8 +14,8 @@ class DemoDataSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name'     => 'Antti Rössi',
-            'email'    => 'antti@jobilla.com',
+            'name'     => 'John',
+            'email'    => 'john@doe.com',
             'avatar'   => null,
             'password' => bcrypt('password'),
         ]);
