@@ -12,18 +12,20 @@ class DemoDataSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        $path = './public/uploads/rce2.jpg';
-        $image = file_get_contents($path);
-        // $base64 = base64_encode($logo);
-
-        DB::table('users')->insert([
-            'name'     => 'John',
-            'image'     => $image,
-            'email'    => 'john@doe.com',
-            'avatar'   => null,
-            'password' => bcrypt('password'),
-        ]);
+    {   
+        for ($i=1; $i < 14 ; $i++) { 
+            $path = './public/uploads/' . $i . '.jpg';
+            $image = file_get_contents($path);
+            // $base64 = base64_encode($logo);
+            
+            DB::table('users')->insert([
+                'name'     => 'John' . $i,
+                'image'     => $image,
+                'email'    => 'john@doe' . $i . '.com',
+                'avatar'   => null,
+                'password' => bcrypt('password'),
+                ]);
+            }
 
         
             
