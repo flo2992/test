@@ -34,6 +34,10 @@ class EventController extends Controller
         return response()->json($events);
     }
 
+     public function home(Request $request)
+    {
+        return response()->json('there are some events that can be sorted');
+    }
     // public function imgupload(){
 
     // }
