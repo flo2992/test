@@ -18,13 +18,24 @@ class DemoDataSeeder extends Seeder
             $image = file_get_contents($path);
             // $base64 = base64_encode($logo);
             
-            DB::table('users')->insert([
-                'name'     => 'John' . $i,
-                'image'     => $image,
-                'email'    => 'john@doe' . $i . '.com',
-                'avatar'   => null,
-                'password' => bcrypt('password'),
+            if ( $i == 3 ){
+                DB::table('users')->insert([
+                    // 'name'     => 'lebeaujack',
+                    'image'     => $image,
+                    'email'    => 'lebeaujack@etalonducul.com',
+                    // 'avatar'   => null,
+                    // 'password' => 'etalonducul',
                 ]);
+            }
+            else {
+                DB::table('users')->insert([
+                    // 'name'     => 'Jack' . $i,
+                    'image'     => $image,
+                    'email'    => 'john@doe' . $i . '.com',
+                    // 'avatar'   => null,
+                    // 'password' => bcrypt('password'),
+                    ]);
+                }
             }
 
         

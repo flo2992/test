@@ -1,5 +1,6 @@
 <?php
 
 Route::get('/events', 'EventController@index');
-Route::post('/uploads', 'FileUploader');
-Route::get('/file-details', 'GetFileDetails');
+Route::post('/pandore/uploads', 'FileUploader');
+// Route::get('/file-details', 'GetFileDetails');
+Route::get('/pandore/file-details', 'GetFileDetails');
