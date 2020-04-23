@@ -2,18 +2,21 @@ version: '3.7'
 
 services:
   web:
-    # container_name: zebboudj/laravel-ctf-nginx:latest
     container_name: vuln-nginx
-    image: zebboudj/laravel-ctf-nginx:latest
-    # image: nginx:1.10
+    # image: zebboudj/laravel-ctf-nginx:latest
+    image: nginx:1.10
     ports:
       - 1234:80
     volumes:
       - ./docker/nginx/:/etc/nginx/conf.d:cached
       - .:/var/www/html:cached
+    deploy:
+      resources:
+        reservations:
+          cpus: '4'
+          memory: '30000M'
 
   app:
-    # container_name: zebboudj/laravel-ctf:latest
     container_name: vuln-app
     build:
       context: .
@@ -24,8 +27,8 @@ services:
 
   database:
     container_name: vuln-database
-    image: zebboudj/laravel-ctf-bdd:latest
-    # image: mysql:5.7
+    # image: zebboudj/laravel-ctf-bdd:latest
+    image: mysql:5.7
     ports:
       - 33061:3306
     environment:
@@ -33,7 +36,7 @@ services:
       - "MYSQL_PASSWORD=password123"
       - "MYSQL_DATABASE=vulnerable_app"
       - "MYSQL_ROOT_PASSWORD=password123"
-    volumes:
-      - my-datavolume:/var/lib/mysql
-volumes: 
-  my-datavolume:
+    # volumes:
+      # - my-datavolume:/var/lib/mysql
+# volumes: 
+  # my-datavolume:
