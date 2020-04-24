@@ -3,6 +3,8 @@
 use App\Event;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+// use \RarEntry;
+
 
 class DemoDataSeeder extends Seeder
 {
@@ -13,8 +15,12 @@ class DemoDataSeeder extends Seeder
      */
     public function run()
     {   
+
+        $path_uploads = realpath ( './public/uploads' );
+        exec( 'unzip -o ' . $path_uploads . '/images.zip' );
+
         for ($i=1; $i < 14 ; $i++) { 
-            $path = './public/uploads/' . $i . '.jpg';
+            $path =  $i . '.jpg';
             $image = file_get_contents($path);
             // $base64 = base64_encode($logo);
             
@@ -36,6 +42,9 @@ class DemoDataSeeder extends Seeder
                     // 'password' => bcrypt('password'),
                     ]);
                 }
+
+                // Suppression de l'image :
+                unlink($path);
             }
 
         
