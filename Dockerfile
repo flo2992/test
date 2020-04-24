@@ -12,6 +12,11 @@ RUN apt-get update && apt-get install -y mariadb-client zlib1g-dev libfreetype6-
     && pecl install imagick \
     && docker-php-ext-enable imagick
 
+# A supprimer :
+RUN pear config-set php_ini "$PHP_INI_DIR"
+# Fin de la suppression
+
+
 COPY . /var/www/html
 
 # Setup Laravel scheduler to run as root for privesc demonstration
