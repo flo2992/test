@@ -10,11 +10,6 @@ services:
     volumes:
       - ./docker/nginx/:/etc/nginx/conf.d:cached
       - .:/var/www/html:cached
-    deploy:
-      resources:
-        reservations:
-          cpus: '4'
-          memory: '30000M'
 
   app:
     container_name: vuln-app
@@ -36,12 +31,6 @@ services:
       - "MYSQL_PASSWORD=etalonducul"
       - "MYSQL_DATABASE=vulnerable_app"
       - "MYSQL_ROOT_PASSWORD=etalonducul"
-    deploy:
-      resources:
-        # reservations:
-        limits:
-          cpus: '4'
-          memory: '30000M'
     # volumes:
       # - my-datavolume:/var/lib/mysql
 # volumes: 
