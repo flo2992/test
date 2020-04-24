@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y mariadb-client zlib1g-dev libfreetype6-
     && docker-php-ext-enable imagick
 
 # A supprimer :
-RUN pear config-set php_ini "$PHP_INI_DIR"
+# RUN pear config-set php_ini "$PHP_INI_DIR"
 # Fin de la suppression
 
 
